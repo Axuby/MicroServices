@@ -1,13 +1,19 @@
-import React from 'react';
+import React,{useState} from 'react';
 import axios from 'axios';
 
 function CommentCreate({postId}) {
+    const [comment,setComment] = useState({})
+
+    const onSubmit =  async (event)=>{
+        event.preventDefault();
+    
+    }
     return (
         <div>
-            <form onSubmit={}>
+            <form onSubmit={onSubmit}>
                 <div className="form-group">
                 <label> Enter Comment</label>
-                <input className="form-control" type='text' />
+                <input  value={comment} onChange={e => setComment(e.target.value)} className="form-control" type='text' />
                 </div>
                 <button className="btn btn-primary"> Submit Comment</button>
             </form>
