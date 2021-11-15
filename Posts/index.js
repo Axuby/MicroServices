@@ -1,7 +1,8 @@
 const express = require('express')
 const {randomBytes} = require('crypto')
+const bodyparser = require('body-parser')
 const app = express()
-
+app.use(bodyparser.json())
 const posts = {}
 
 app.post('/posts', (req,res)=>{
