@@ -2,10 +2,14 @@ import React,{useState} from 'react';
 import axios from 'axios';
 
 function CommentCreate({postId}) {
-    const [comment,setComment] = useState({})
+    const [comment,setComment] = useState('')
 
     const onSubmit =  async (event)=>{
         event.preventDefault();
+        await axios.post(`/posts/${postId}/comments`,{
+            comment
+        })
+        setComment('')
     
     }
     return (
